@@ -3,8 +3,10 @@
 Swift classes and structures are much closer in functionality than in other languages. You define properties and methods to add functionality to your classes and structures by using exactly the same syntax as for constants, variables, and functions. 
 
 Much of this chapter describes functionality that can apply to instances of either a class or a structure type. An instance of a class is traditionally known as an object.
+<br />
 
 **Classes and structs in Swift have many things in common. Both can:**
+<br />
  - Define properties to store values (stored and computed properties)
 
  - Define methods to provide functionality
@@ -17,9 +19,10 @@ Much of this chapter describes functionality that can apply to instances of eith
 
  - Be extended to expand their functionality beyond a default implementation
 
-
+<br />
 
 **Classes have additional capabilities that structs do not:**
+<br />
 
  - **Inheritance:** enables a class to inherit the characteristics of another class. 
  The structure does not need to inherit properties or behavior from another existing type.
@@ -29,23 +32,24 @@ Much of this chapter describes functionality that can apply to instances of eith
  - **Deinitializers:** enable an object to free up any resources it has assigned.
 
  - **Reference counting:** allows more than one reference to an object.
-
+ <br />
 
 
 **There is one big difference between class and struct:**
+<br />
 Classes are **reference types** but structs are **value types**. A value type is a type whose value is copied when it is assigned to a variable or constant,
 or when it is passed to a function. All of the basic types in Swift integers, floating-point numbers, Booleans, strings, arrays and dictionaries are value types,
 and are implemented as structures behind the scenes. Enumerations are value type too. 
 Unlike value types, reference types are not copied when they are assigned to a variable or constant, 
 or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used instead 
 (in assignement two variables point to the same object in memory. It is kind of like sharing.) Structures copy values while classes share objects.
-
+<br />
 
 | **Structures**  | **Classs** |
 | ------------- | ------------- |
 | Value types  | Reference types  |
 | Copy  | Share |
-
+<br />
 
 
     struct EmployeeStruct {
@@ -66,10 +70,10 @@ or when they are passed to a function. Rather than a copy, a reference to the sa
     employee1.firstName = "HASTI"
     //employee2's firstName is still "hasti"
     
-    
+<br />  
 In this case employee1 and employee2 would both have their own copy of the structure.     
 What would happen If we used a class instead?    
-
+<br />
 
     class EmployeeClass {
       var firstName: String
@@ -93,6 +97,7 @@ What would happen If we used a class instead?
      employee3.firstName = "HASTI"
      //employee4's firstName is "HASTI" too.
 
+<br />
 
 The stored properties and computed property work the same way. There is one difference,
 Classes will not create a default initializer for you like structures do. So you have to create one yourself. 
@@ -103,6 +108,7 @@ If you are making a method inside a struct that modifies that struct you have to
 When you call uppercase method, you are basically making a new copy of the structure and making sure the swift compiler 
 knows that too.  
 
+<br />
 
 **NOTE:** When we create a reference type like a class, the system stores the actual instance of that class and a region of memory called the **heap**.
 Instances of a value type like a struct are stored in a different region of memory called the **stack**.
@@ -119,9 +125,10 @@ than the same thing on the stack. When you create an instance of a class you are
 to store the instance of the class itself. It stores the address of that memory and you are named variable on the stack.
 When you create an instance of a structure _that is not part of a class_ it’s stored on the stack instead the heap is involved at all.
 
-
+<br />
 
 **Choosing Between Classes and Structures:**
+<br />
  - The structure’s primary purpose is to encapsulate a few relatively simple data values. 
  Think of values versus objects. Structs are value types which it means they are considered equal if they contain the exact same values. 
  However objects are unique and as such they all have their own identities. So if you had two objects contain the same exact values they 
@@ -144,7 +151,7 @@ When you create an instance of a structure _that is not part of a class_ it’s 
  - If your data will never change or you just need a simple data store then use structures, but if you want to update your data or add methods to your data so that 
  it can update its own state then consider using classes. 
  
-
+<br />
 Often it’s best to start with struct and if you find out later you need the capabilities of a class then just change it to a class. 
 
 
