@@ -1,4 +1,4 @@
-Swift classes and structures are much closer in functionality than in other languages. You define properties and methods to add functionality to your classes and structures by using exactly the same syntax as for constants, variables, and functions. 
+Swift classes and structures are basic constructs of your program that are much closer in functionality than in other languages. You define properties and methods to add functionality to your classes and structures by using exactly the same syntax as for constants, variables, and functions. 
 
 Much of this chapter describes functionality that can apply to instances of either a class or a structure type. An instance of a class is traditionally known as an object.
 <br />
@@ -35,8 +35,8 @@ Much of this chapter describes functionality that can apply to instances of eith
 
 **There is one big difference between class and struct:**
 <br />
-Classes are **reference types** but structs are **value types**. A value type is a type whose value is copied when it is assigned to a variable or constant,
-or when it is passed to a function. All of the basic types in Swift integers, floating-point numbers, Booleans, strings, arrays and dictionaries are value types,
+Classes are **reference types** but structs are **value types**. A value type is a type whose value is copied when it is assigned to a variable or constant, or when it is passed to a function _ A struct variable can be marked as an inout parameter if it needs to be modified inside a function and its value persisted outside of the scope of the function _. All of the basic types in Swift integers,
+floating-point numbers, Booleans, strings, arrays and dictionaries are value types,
 and are implemented as structures behind the scenes. Enumerations are value type too. 
 Unlike value types, reference types are not copied when they are assigned to a variable or constant, 
 or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used instead 
@@ -101,10 +101,14 @@ The stored properties and computed property work the same way. There is one diff
 Classes will not create a default initializer for you like structures do. So you have to create one yourself. 
 Both employee3 and employee4 point to the same object in memory.
 
+**Mutating Functions:**
 Instances of classes are mutable objects and can change whereas instances of structures are immutable values and they can not change. 
 If you are making a method inside a struct that modifies that struct you have to mark it as mutating.
 When you call uppercase method, you are basically making a new copy of the structure and making sure the swift compiler 
 knows that too.  
+
+**Mutability:**
+Using let on a struct makes that object a constant. It cannot be changed or reassigned and neither can its variables. A struct created as a var can have its variables changed. The let and var keywords do not affect the ability to change a variable on a class. Since classes are reference objects the only difference between let and var is the ability to reassign the variable to a different class of the same type.
 
 <br />
 
