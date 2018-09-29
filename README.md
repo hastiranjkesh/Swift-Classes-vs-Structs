@@ -1,4 +1,3 @@
-
 Swift classes and structures are much closer in functionality than in other languages. You define properties and methods to add functionality to your classes and structures by using exactly the same syntax as for constants, variables, and functions. 
 
 Much of this chapter describes functionality that can apply to instances of either a class or a structure type. An instance of a class is traditionally known as an object.
