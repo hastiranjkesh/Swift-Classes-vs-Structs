@@ -1,4 +1,3 @@
-# Swift-Classes-vs-Structs
 
 Swift classes and structures are much closer in functionality than in other languages. You define properties and methods to add functionality to your classes and structures by using exactly the same syntax as for constants, variables, and functions. 
 
