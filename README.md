@@ -101,6 +101,17 @@ The stored properties and computed property work the same way. There is one diff
 Classes will not create a default initializer for you like structures do. So you have to create one yourself. 
 Both employee3 and employee4 point to the same object in memory.
 
+
+“ We’re often dealing with objects that need an explicit lifecycle (reference types): they’re initialized, changed, and destroyed. For example, a file handle has a clear lifecycle: it’s opened, actions are performed on it, and then we need to close it. "
+" In all software, there are many objects that have a lifecycle — file handles, notification centers, networking interfaces, database connections, and view controllers are some examples. When comparing these types, we don’t compare their properties, but instead compare their memory addresses.”
+
+“Other types (value types) don’t need to have a lifecycle. For example, a URL is created and then never changed. More importantly, it doesn’t need to perform any action when it’s destroyed (in contrast to the file handle, which needs to be closed). When we compare two URL variables, we don’t care whether they point to the same address in memory”
+
+Excerpt From: Chris Eidhof. “Advanced Swift.” Apple Books. 
+
+Structs have a single owner. For instance, if we pass a struct variable to a function, that function receives a copy of the struct, and it can only change its own copy. Contrast this with the way objects work: they get passed by reference and can have many owners. 
+
+
 **Mutating Functions:**
 Instances of classes are mutable objects and can change whereas instances of structures are immutable values and they can not change. 
 If you are making a method inside a struct that modifies that struct you have to mark it as mutating.
@@ -155,6 +166,19 @@ When you create an instance of a structure _that is not part of a class_ it’s 
  
 <br />
 Often it’s best to start with struct and if you find out later you need the capabilities of a class then just change it to a class. 
+
+**NOTE:** 
+
+1 - Because structs only have a single owner, it’s not possible to create a reference cycle. But with classes, we need to always be careful to not create reference cycles
+
+2 - When using structs, the compiler can generate really fast code. For example, the performance of operations on an array containing just structs is usually much better than the performance of operations on an array containing objects.
+
+3 - Memory management for value types is very easy. Because they have a single owner, the memory needed for them is created and freed automatically. For classes, Swift uses automatic reference counting (ARC) to manage memory.
+Every time you create a new reference to an object, the reference count gets increased by one. Once you let go of that reference (for example, the variable goes out of scope), the reference count decreases by one. When the reference count goes to zero, the object is deallocated.
+
+
+
+
 
 
 
