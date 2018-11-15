@@ -3,6 +3,7 @@ Swift classes and structures are basic constructs of your program that are much 
 Much of this chapter describes functionality that can apply to instances of either a class or a structure type. An instance of a class is traditionally known as an object.
 <br />
 
+
 **Classes and structs in Swift have many things in common. Both can:**
 <br />
  - Define properties to store values (stored and computed properties)
@@ -18,6 +19,7 @@ Much of this chapter describes functionality that can apply to instances of eith
  - Be extended to expand their functionality beyond a default implementation
 
 <br />
+
 
 **Classes have additional capabilities that structs do not:**
 <br />
@@ -166,6 +168,7 @@ When you create an instance of a structure _that is not part of a class_ it’s 
  
 <br />
 Often it’s best to start with struct and if you find out later you need the capabilities of a class then just change it to a class. 
+
 
 **NOTE:** 
 
